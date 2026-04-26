@@ -7,21 +7,55 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * SensitiveDataMasker 测试
  */
+@Slf4j
 class SensitiveDataMaskerTest {
 
     @Test
-    void testMaskPhone() {
+    void testMaskPhone() throws InterruptedException {
         Map<String, Object> params = Map.of(
                 "phone", "13812345678",
                 "orderId", "123456"
         );
 
+        System.out.println(params);
+
         String result = SensitiveDataMasker.mask(params);
 
+        for (int i = 0; i < 100; i++) {
+            log.info("====zsy====");
+            log.warn("--------------");
+            log.error("-----abc------");
+            Thread.sleep(2000L);
+        }
+
         System.out.println("手机号脱敏结果: " + result);
+        log.info("========");
+        log.info("--------------");
+        log.info("--------------");
+        log.info("--------------");
+        log.info("--------------");
+        log.info("--------------");
+        log.warn("========");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        log.error("========");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+        System.out.println("--------------");
+
         assertTrue(result.contains("138****5678"));
         assertTrue(result.contains("123456"));
     }
